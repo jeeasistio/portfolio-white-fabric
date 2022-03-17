@@ -1,13 +1,19 @@
 import React from 'react'
 import GridContainer from '../UtilityComponents/GridContainer'
+import GridItem from '../UtilityComponents/GridItem'
 import BottomText from './BottomText'
 import HeroImage from './HeroImage'
 import TopText from './TopText'
 
 const template = `
-  'tt tt tt'
-  'hi hi hi'
-  'bt bt bt'
+  's1 s1 s1 s2 s2 s2 s2'
+  's1 s1 s1 s2 s2 s2 s2'
+  'tt tt tt s2 s2 s2 s2'
+  'hi hi hi hi hi hi hi'
+  'hi hi hi hi hi hi hi'
+  's3 s3 s3 s3 bt bt bt'
+  's4 s4 s4 s4 s4 s4 s4'
+  's4 s4 s4 s4 s4 s4 s4'
 `
 
 const Hero = () => {
@@ -16,6 +22,10 @@ const Hero = () => {
       templateAreas={template}
       sx={{ height: 'calc(100vh - 50px)' }}
     >
+      <GridItem areaName="s1" />
+      <GridItem areaName="s2" />
+      <GridItem areaName="s3" />
+      <GridItem areaName="s4" />
       <TopText />
       <HeroImage />
       <BottomText />
