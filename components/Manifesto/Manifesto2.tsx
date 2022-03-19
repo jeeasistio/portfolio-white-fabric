@@ -1,11 +1,11 @@
-import { Typography } from '@mui/material'
 import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
+import TextCtn from '../UtilityComponents/TextCtn'
 
 const Manifesto2 = () => {
   return (
     <GridItem areaName="m2">
-      <Typography>Manifesto2</Typography>
+      <TextCtn text="Build" variant="h2" />
     </GridItem>
   )
 }

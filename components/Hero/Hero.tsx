@@ -6,13 +6,13 @@ import HeroImage from './HeroImage'
 import TopText from './TopText'
 
 const template = `
-  's1 s1 s1 s2 s2 s2 s2'
-  's1 s1 s1 s2 s2 s2 s2'
-  'tt tt tt s2 s2 s2 s2'
+  's1 s1 s1 s1 s2 s2 s2'
+  'tt tt tt tt s2 s2 s2'
   'hi hi hi hi hi hi hi'
   'hi hi hi hi hi hi hi'
-  's3 s3 s3 s3 bt bt bt'
-  's4 s4 s4 s4 s4 s4 s4'
+  'hi hi hi hi hi hi hi'
+  'hi hi hi hi hi hi hi'
+  's3 s3 s3 bt bt bt bt'
   's4 s4 s4 s4 s4 s4 s4'
 `
 

@@ -11,7 +11,6 @@ const GridItem = ({ children, areaName, sx }: Props) => {
   return (
     <Box
       sx={{
-        p: 1,
         backgroundColor: 'common.white',
         color: 'common.black',
         gridArea: areaName,

@@ -1,13 +1,11 @@
-import { Box } from '@mui/material'
 import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
+import ParallaxImage from '../UtilityComponents/ParallaxImage'
 
 const Image4 = () => {
   return (
-    <GridItem areaName='i4'>
-      <Box
-        sx={{ height: '100%', width: '100%', backgroundColor: 'success.main' }}
-      />
+    <GridItem areaName="i4">
+      <ParallaxImage src="work_4.jpg" alt="architecture" />
     </GridItem>
   )
 }
