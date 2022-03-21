@@ -11,6 +11,7 @@ const WeBuildText = () => {
       <TextCtn
         text="We create places that connects, sustains & inspires one another"
         variant="h2"
+        textStyle={{ textAlign: 'center' }}
       />
     </GridItem>
   )

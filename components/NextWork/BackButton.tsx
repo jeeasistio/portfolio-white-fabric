@@ -2,12 +2,12 @@ import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
 import TextCtn from '../UtilityComponents/TextCtn'
 
-const NextButton = () => {
+const BackButton = () => {
   return (
-    <GridItem areaName='bt'>
-      <TextCtn text="Next Work" variant="h2" />
+    <GridItem areaName='bk'>
+      <TextCtn text="Back" variant="h2" />
     </GridItem>
   )
 }
 
-export default NextButton
+export default BackButton

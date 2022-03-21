@@ -13,7 +13,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
   const [x, setX] = useState(0)
 
   useEffect(() => {
-    setX(curr * -380)
+    setX(curr * -350)
   }, [curr])
 
   return (
@@ -30,7 +30,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
     >
       <Box
         sx={{
-          width: 380,
+          width: 350,
           height: '100%'
         }}
       >
@@ -58,7 +58,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                 <Box
                   key={index}
                   sx={{
-                    width: 380,
+                    width: 350,
                     height: '100%',
                     display: 'flex',
                     justifyContent: 'center',
@@ -69,7 +69,10 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                   <Box
                     sx={{ backgroundColor: 'secondary.main' }}
                     component={motion.div}
-                    animate={{ width: curr === index ? 380 : 50 }}
+                    animate={{
+                      width: curr === index ? 350 : 100,
+                      height: curr === index ? 500 : 300
+                    }}
                     transition={{ duration: 1 }}
                   >
                     <Typography align="center" variant="h2">

@@ -12,9 +12,9 @@ const template = `
   's1 s1 s1 s1 i1 i1 i1'
   's5 i5 i5 i5 i1 i1 i1'
   's5 i5 i5 i5 s2 s2 s2'
-  's3 s3 s3 ot i4 i4 i4'
-  'i2 i2 i2 s4 i4 i4 i4'
-  'i2 i2 i2 s4 i4 i4 i4'
+  's3 s3 s3 ot ot i4 i4'
+  'i2 i2 i2 s4 s4 i4 i4'
+  'i2 i2 i2 s4 s4 i4 i4'
   'i2 i2 i2 i3 i3 i3 i3'
 `
 

@@ -4,7 +4,7 @@ import Description from './Description'
 import Image1 from './Image1'
 
 const template = `
-  'ds im im'
+  'ds ds im'
 `
 
 const WorkDetails = () => {

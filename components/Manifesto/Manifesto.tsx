@@ -11,9 +11,9 @@ const template = `
   'm1 m1 m1 s1 s1 s1 m2'
   's3 s2 s2 s2 s2 s2 m2'
   's3 s2 s2 s2 s2 s2 m2'
-  's3 im im im im s4 s4'
-  's3 im im im im s4 s4'
-  's3 im im im im s4 s4'
+  's3 im im im im s4 m2'
+  's3 im im im im s4 s7'
+  's3 im im im im s4 s7'
   's3 s5 s5 s5 s5 s5 s5'
   's3 s5 s5 s5 s5 s5 s5'
   's6 s6 s6 s6 m3 m3 m3'
@@ -28,6 +28,7 @@ const Manifesto = () => {
       <GridItem areaName='s4' />
       <GridItem areaName='s5' />
       <GridItem areaName='s6' />
+      <GridItem areaName='s7' />
       <Image1 />
       <Manifesto1 />
       <Manifesto2 />

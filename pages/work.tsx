@@ -10,8 +10,9 @@ import WorkIntro from '../components/WorkIntro/WorkIntro'
 const work = () => {
   return (
     <Box>
-      <Head><title>work</title></Head>
-
+      <Head>
+        <title>work</title>
+      </Head>
       <Layout>
         <WorkIntro />
         <Gallery />

@@ -8,7 +8,7 @@ interface Props {
 
 const ParallaxImage = ({ src, alt }: Props) => {
   return (
-    <Box sx={{ height: '100%', width: '100%' }}>
+    <Box sx={{ height: '100%', width: '100%', overflow: 'hidden' }}>
       <img
         src={src}
         alt="architecture"

@@ -13,8 +13,8 @@ const GridContainer = ({ children, templateAreas, areaName, sx }: Props) => {
     <Box
       sx={{
         display: 'grid',
-        gap: 0.15,
-        pb: 0.15,
+        gap: 0.2,
+        pb: 0.2,
         gridTemplateAreas: templateAreas,
         gridArea: areaName,
         ...sx

@@ -14,6 +14,8 @@ const GridItem = ({ children, areaName, sx }: Props) => {
         backgroundColor: 'common.white',
         color: 'common.black',
         gridArea: areaName,
+        minHeight: '2rem',
+        minWidth: '2rem',
         ...sx
       }}
     >
