@@ -1,12 +1,8 @@
 import React from 'react'
-import Image1 from './Image1'
-import Image2 from './Image2'
-import Image3 from './Image3'
-import Image4 from './Image4'
-import Image5 from './Image5'
 import OurWorksTitle from './OurWorksTitle'
 import GridContainer from '../UtilityComponents/GridContainer'
 import GridItem from '../UtilityComponents/GridItem'
+import OurWorksImages from './OurWorksImages'
 
 const template = `
   's1 s1 s1 s1 i1 i1 i1'
@@ -18,7 +14,11 @@ const template = `
   'i2 i2 i2 i3 i3 i3 i3'
 `
 
-const OurWorks = () => {
+interface Props {
+  images: string[]
+}
+
+const OurWorks = ({ images }: Props) => {
   return (
     <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
       <OurWorksTitle />
@@ -27,11 +27,9 @@ const OurWorks = () => {
       <GridItem areaName="s3" />
       <GridItem areaName="s4" />
       <GridItem areaName="s5" />
-      <Image1 />
-      <Image2 />
-      <Image3 />
-      <Image4 />
-      <Image5 />
+      {images.map((image, index) => (
+        <OurWorksImages key={index} image={image} areaName={`i${index + 1}`} />
+      ))}
     </GridContainer>
   )
 }
