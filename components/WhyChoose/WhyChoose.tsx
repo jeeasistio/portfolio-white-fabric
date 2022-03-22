@@ -7,9 +7,9 @@ import WhyText from './WhyText'
 const template = `
   'im im im im im'
   'im im im im im'
-  'tx tx s1 s1 s1'
-  'tx tx s1 s1 s1'
-  'tx tx s1 s1 s1'
+  'tx s1 s1 s1 s1'
+  'tx s1 s1 s1 s1'
+  'tx s1 s1 s1 s1'
 `
 
 const WhyChoose = () => {
