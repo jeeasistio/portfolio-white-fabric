@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+import getAPIURL from '../../lib/getAPIURL'
 import GridItem from '../UtilityComponents/GridItem'
 
 interface Props {
@@ -70,14 +71,18 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                     sx={{ backgroundColor: 'secondary.main' }}
                     component={motion.div}
                     animate={{
-                      width: curr === index ? 350 : 100,
-                      height: curr === index ? 500 : 300
+                      width: curr === index ? 350 : 200,
+                      height: curr === index ? 500 : 100
                     }}
                     transition={{ duration: 1 }}
                   >
-                    <Typography align="center" variant="h2">
-                      {image}
-                    </Typography>
+                    <img
+                      src={`${getAPIURL()}${image}`}
+                      alt="work"
+                      width={'100%'}
+                      height={'100%'}
+                      style={{ objectFit: 'cover', pointerEvents: 'none' }}
+                    />
                   </Box>
                 </Box>
               ))}

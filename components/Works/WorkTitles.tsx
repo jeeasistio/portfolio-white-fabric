@@ -38,7 +38,7 @@ const WorkTitles = ({ title }: Props) => {
           opacity: { duration: 0.5 }
         }}
       >
-        Title
+        {title}
       </Typography>
     </GridItem>
   )
