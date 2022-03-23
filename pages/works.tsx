@@ -1,20 +1,24 @@
 import { Box } from '@mui/material'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Layout from '../components/UtilityComponents/Layout'
 import WorksList from '../components/Works/WorksList'
-import getProductsList, { Project } from '../lib/getProductsList'
+import getAPIUrl from '../lib/getAPIUrl'
+import { getProjectCovers, Project, ProjectCover } from '../lib/getProjects'
 
-const Works = () => {
-  const [projects, setProjects] = useState<Project[] | null>(null)
+interface Props {
+  covers: string
+}
 
-  useEffect(() => {
-    const func = async () => {
-      const res = await getProductsList()
-      setProjects(res)
-    }
-    func()
-  }, [])
+const Works: NextPage<Props> = ({ covers }) => {
+  const parsedCovers: ProjectCover[] = JSON.parse(covers)
+  const simplifiedCovers = parsedCovers.map((cov) => ({
+    name: cov.attributes.name,
+    image: `${getAPIUrl()}${
+      cov.attributes.cover.data.attributes.formats.medium.url
+    }`
+  }))
 
   return (
     <Box>
@@ -22,9 +26,21 @@ const Works = () => {
         <title>Works</title>
       </Head>
 
-      <Layout>{projects !== null && <WorksList works={projects} />}</Layout>
+      <Layout>
+        <WorksList works={simplifiedCovers} />
+      </Layout>
     </Box>
   )
 }
 
 export default Works
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await getProjectCovers()
+
+  return {
+    props: {
+      covers: JSON.stringify(res.data)
+    }
+  }
+}

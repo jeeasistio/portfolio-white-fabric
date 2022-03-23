@@ -1,6 +1,6 @@
 import { AnimatePresence, PanInfo } from 'framer-motion'
 import React, { useState } from 'react'
-import { Project } from '../../lib/getProductsList'
+import { Project } from '../../lib/getProjects'
 import GridContainer from '../UtilityComponents/GridContainer'
 import GridItem from '../UtilityComponents/GridItem'
 import Carousel from './Carousel'
@@ -20,20 +20,24 @@ const template = `
   's1 s1 wi wi wi s2 s2'
 `
 
-const IMAGES = ['1', '2', '3', '4', '5']
-
 const getDirection = (velocity: number) => {
   if (velocity > 0) return 'left'
   if (velocity < 0) return 'right'
   return false
 }
 
+interface Work {
+  name: string
+  image: string
+}
+
 interface Props {
-  works: Project[]
+  works: Work[]
 }
 
 const WorksList = ({ works }: Props) => {
   const [curr, setCurr] = useState(0)
+  const images = works.map((work) => work.image)
 
   const handleDrag = (
     e: MouseEvent | TouchEvent | PointerEvent,
@@ -58,13 +62,9 @@ const WorksList = ({ works }: Props) => {
       sx={{ height: 'calc(100vh - 50px)' }}
     >
       <AnimatePresence>
-        <WorkTitles title={works[curr].name} key={IMAGES[curr]} />
+        <WorkTitles title={works[curr].name} key={works[curr].name} />
       </AnimatePresence>
-      <Carousel
-        images={works.map((work) => work.image.formats.medium.url)}
-        curr={curr}
-        handleDrag={handleDrag}
-      />
+      <Carousel images={images} curr={curr} handleDrag={handleDrag} />
       <GridItem areaName="s1" />
       <GridItem areaName="s2" />
     </GridContainer>

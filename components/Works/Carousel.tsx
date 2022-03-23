@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import getAPIURL from '../../lib/getAPIURL'
+import getAPIURL from '../../lib/getAPIUrl'
 import GridItem from '../UtilityComponents/GridItem'
 
 interface Props {
@@ -72,12 +72,12 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                     component={motion.div}
                     animate={{
                       width: curr === index ? 350 : 200,
-                      height: curr === index ? 500 : 100
+                      height: curr === index ? 500 : 150
                     }}
                     transition={{ duration: 1 }}
                   >
                     <img
-                      src={`${getAPIURL()}${image}`}
+                      src={image}
                       alt="work"
                       width={'100%'}
                       height={'100%'}

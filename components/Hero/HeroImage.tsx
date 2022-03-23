@@ -6,7 +6,10 @@ import ParallaxImage from '../UtilityComponents/ParallaxImage'
 const HeroImage = () => {
   return (
     <GridItem areaName="hi">
-      <ParallaxImage src="hero.jpg" alt="architecture" />
+      <ParallaxImage
+        src="https://i.ibb.co/VpTpGM7/hero.jpg"
+        alt="architecture"
+      />
     </GridItem>
   )
 }

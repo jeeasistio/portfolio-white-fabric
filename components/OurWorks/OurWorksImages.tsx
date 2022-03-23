@@ -1,5 +1,5 @@
 import React from 'react'
-import getAPIURL from '../../lib/getAPIURL'
+import getAPIURL from '../../lib/getAPIUrl'
 import GridItem from '../UtilityComponents/GridItem'
 import ParallaxImage from '../UtilityComponents/ParallaxImage'
 
@@ -11,7 +11,7 @@ interface Props {
 const OurWorksImages = ({ image, areaName }: Props) => {
   return (
     <GridItem areaName={areaName}>
-      <ParallaxImage src={`${getAPIURL()}${image}`} alt="architecture" />
+      <ParallaxImage src={image} alt="architecture" />
     </GridItem>
   )
 }

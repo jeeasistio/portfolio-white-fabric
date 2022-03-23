@@ -5,7 +5,7 @@ import ParallaxImage from '../UtilityComponents/ParallaxImage'
 const WhyImage = () => {
   return (
     <GridItem areaName='im'>
-      <ParallaxImage src="/why.jpg" alt="architecture" />
+      <ParallaxImage src="https://i.ibb.co/cYZXSbb/why.jpg" alt="architecture" />
     </GridItem>
   )
 }
