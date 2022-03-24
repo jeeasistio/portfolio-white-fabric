@@ -72,7 +72,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                     component={motion.div}
                     animate={{
                       width: curr === index ? 350 : 200,
-                      height: curr === index ? 500 : 150
+                      height: curr === index ? 500 : 400
                     }}
                     transition={{ duration: 1 }}
                   >

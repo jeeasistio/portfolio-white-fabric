@@ -40,18 +40,35 @@ interface StrapiResult<T> {
   }
 }
 
-export interface ProjectCover {
+export interface ProjectCoverResult {
   id: number
   attributes: Pick<Project, 'name' | 'cover'>
 }
 
-type GetProjectCoversResult = StrapiResult<ProjectCover[]>
+type GetProjectCoversResult = StrapiResult<ProjectCoverResult[]>
 
 export const getProjectCovers = async () => {
   const apiUrl = getAPIUrl()
 
   const res = await axios.get<GetProjectCoversResult>(
-    `${apiUrl}/api/projects?fields=name&populate=cover`
+    `${apiUrl}/api/projects?sort=createdAt:desc&fields=name&populate=cover`
+  )
+
+  return res.data
+}
+
+export interface StrapiProject {
+  id: number
+  attributes: Project
+}
+
+type GetProjectResult = StrapiResult<StrapiProject>
+
+export const getProject = async (id: string) => {
+  const apiUrl = getAPIUrl()
+
+  const res = await axios.get<GetProjectResult>(
+    `${apiUrl}/api/projects/${id}?populate=cover,description.image`
   )
 
   return res.data

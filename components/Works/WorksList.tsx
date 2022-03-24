@@ -26,7 +26,7 @@ const getDirection = (velocity: number) => {
   return false
 }
 
-interface Work {
+export interface Work {
   name: string
   image: string
 }

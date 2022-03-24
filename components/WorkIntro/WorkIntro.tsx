@@ -15,12 +15,21 @@ const template = `
   'wt wt ds ds ds ds ds'
 `
 
-const WorkIntro = () => {
+interface Props {
+  title: string
+  image: string
+  about: string
+}
+
+const WorkIntro = ({ title, image, about }: Props) => {
   return (
-    <GridContainer templateAreas={template} sx={{ height: 'calc(100vh - 50px)' }}>
-      <Title />
-      <WorkImage />
-      <Description />
+    <GridContainer
+      templateAreas={template}
+      sx={{ height: 'calc(100vh - 50px)' }}
+    >
+      <Title title={title} />
+      <WorkImage image={image} />
+      <Description description={about} />
     </GridContainer>
   )
 }

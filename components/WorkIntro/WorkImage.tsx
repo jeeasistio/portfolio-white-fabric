@@ -3,10 +3,16 @@ import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
 import ParallaxImage from '../UtilityComponents/ParallaxImage'
 
-const WorkImage = () => {
+interface Props {
+  image: string
+}
+
+const WorkImage = ({ image }: Props) => {
+  console.log(image)
+
   return (
     <GridItem areaName="im">
-      <ParallaxImage src="/work_1.jpg" alt="architecture" />
+      <ParallaxImage src={image} alt="architecture" />
     </GridItem>
   )
 }
