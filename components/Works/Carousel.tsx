@@ -1,7 +1,6 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import getAPIURL from '../../lib/getAPIUrl'
 import GridItem from '../UtilityComponents/GridItem'
 
 interface Props {

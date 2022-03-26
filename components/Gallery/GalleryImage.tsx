@@ -7,7 +7,7 @@ interface Props {
   areaName: string
 }
 
-const OurWorksImages = ({ image, areaName }: Props) => {
+const GalleryImage = ({ image, areaName }: Props) => {
   return (
     <GridItem areaName={areaName}>
       <ParallaxImage src={image} alt="architecture" />
@@ -15,4 +15,4 @@ const OurWorksImages = ({ image, areaName }: Props) => {
   )
 }
 
-export default OurWorksImages
+export default GalleryImage

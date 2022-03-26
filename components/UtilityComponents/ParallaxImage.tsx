@@ -14,7 +14,7 @@ const ParallaxImage = ({ src, alt }: Props) => {
         alt="architecture"
         width={'100%'}
         height={'100%'}
-        style={{ objectFit: 'cover' }}
+        style={{ objectFit: 'cover', objectPosition: 'center' }}
       />
     </Box>
   )
