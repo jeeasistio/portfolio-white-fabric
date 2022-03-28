@@ -8,6 +8,7 @@ interface Props {
 }
 
 const OurWorksImages = ({ image, areaName }: Props) => {
+  console.log(image)
   return (
     <GridItem areaName={areaName}>
       <ParallaxImage src={image} alt="architecture" />

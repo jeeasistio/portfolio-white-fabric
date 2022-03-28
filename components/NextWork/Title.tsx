@@ -2,11 +2,15 @@ import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
 import TextCtn from '../UtilityComponents/TextCtn'
 
-const Title = () => {
+interface Props {
+  title: string
+}
+
+const Title = ({ title }: Props) => {
   return (
     <GridItem areaName="wt">
       <TextCtn
-        text="White House"
+        text={title}
         variant="h1"
         textStyle={{ writingMode: 'vertical-rl' }}
       />

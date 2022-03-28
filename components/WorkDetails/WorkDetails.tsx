@@ -7,11 +7,16 @@ const template = `
   'ds ds im'
 `
 
-const WorkDetails = () => {
+interface Props {
+  details: string
+  image: string
+}
+
+const WorkDetails = ({ details, image }: Props) => {
   return (
     <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
-      <Description />
-      <Image1 />
+      <Description text={details} />
+      <Image1 image={image} />
     </GridContainer>
   )
 }

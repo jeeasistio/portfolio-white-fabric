@@ -1,6 +1,5 @@
 import React from 'react'
 import GridContainer from '../UtilityComponents/GridContainer'
-import Space from '../UtilityComponents/Space'
 import BackButton from './BackButton'
 import Image1 from './Image1'
 import NextButton from './NextButton'
@@ -14,12 +13,18 @@ const template = `
   'bk bk bt bt bt bt bt'
 `
 
-const NextWork = () => {
+interface Props {
+  image: string
+  title: string
+  id: string
+}
+
+const NextWork = ({ image, title, id }: Props) => {
   return (
     <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
-      <Image1 />
-      <Title />
-      <NextButton />
+      <Image1 image={image} />
+      <Title title={title} />
+      <NextButton link={''} />
       <BackButton />
     </GridContainer>
   )

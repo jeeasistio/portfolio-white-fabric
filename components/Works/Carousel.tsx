@@ -67,19 +67,23 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                   }}
                 >
                   <Box
-                    sx={{ backgroundColor: 'secondary.main' }}
+                    sx={{ overflow: 'hidden' }}
                     component={motion.div}
                     animate={{
                       width: curr === index ? 350 : 200,
                       height: curr === index ? 500 : 400
+                    }}
+                    initial={{
+                      width: 200,
+                      height: 400
                     }}
                     transition={{ duration: 1 }}
                   >
                     <img
                       src={image}
                       alt="work"
-                      width={'100%'}
-                      height={'100%'}
+                      width={350}
+                      height={500}
                       style={{ objectFit: 'cover', pointerEvents: 'none' }}
                     />
                   </Box>

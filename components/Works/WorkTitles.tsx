@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
@@ -8,6 +8,7 @@ interface Props {
 }
 
 const WorkTitles = ({ title }: Props) => {
+
   return (
     <GridItem
       areaName="wt"

@@ -1,6 +1,5 @@
 import { AnimatePresence, PanInfo } from 'framer-motion'
 import React, { useState } from 'react'
-import { Project } from '../../lib/getProjects'
 import GridContainer from '../UtilityComponents/GridContainer'
 import GridItem from '../UtilityComponents/GridItem'
 import Carousel from './Carousel'
@@ -27,8 +26,9 @@ const getDirection = (velocity: number) => {
 }
 
 export interface Work {
-  name: string
+  title: string
   image: string
+  _id: string
 }
 
 interface Props {
@@ -62,7 +62,7 @@ const WorksList = ({ works }: Props) => {
       sx={{ height: 'calc(100vh - 50px)' }}
     >
       <AnimatePresence>
-        <WorkTitles title={works[curr].name} key={works[curr].name} />
+        <WorkTitles title={works[curr].title} key={works[curr].title} />
       </AnimatePresence>
       <Carousel images={images} curr={curr} handleDrag={handleDrag} />
       <GridItem areaName="s1" />

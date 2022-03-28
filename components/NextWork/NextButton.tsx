@@ -2,9 +2,13 @@ import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
 import TextCtn from '../UtilityComponents/TextCtn'
 
-const NextButton = () => {
+interface Props {
+  link: string
+}
+
+const NextButton = ({ link }: Props) => {
   return (
-    <GridItem areaName='bt'>
+    <GridItem areaName="bt">
       <TextCtn text="Next Work" variant="h2" />
     </GridItem>
   )
