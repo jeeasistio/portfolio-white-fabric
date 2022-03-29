@@ -24,7 +24,7 @@ const NextWork = ({ image, title, id }: Props) => {
     <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
       <Image1 image={image} />
       <Title title={title} />
-      <NextButton link={''} />
+      <NextButton link={`/work/${id}`} />
       <BackButton />
     </GridContainer>
   )

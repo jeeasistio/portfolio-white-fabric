@@ -57,40 +57,6 @@ const work: NextPage<Props> = ({ work, nextWork }) => {
 export default work
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const idsQuery = `*[_type == "project"] {
-      _id
-    } | order(_createdAt desc)
-  `
-
-  const projectIDs: { _id: string }[] = await client.fetch(idsQuery)
-
-  const getProjectIndex = () =>
-    projectIDs.findIndex(({ _id }) => _id === params?.id)
-  const getNextProjectIndex = () => (getProjectIndex() + 1) % projectIDs.length
-  const getNextProjectId = () => projectIDs[getNextProjectIndex()]._id
-
-  interface NextWork {
-    title: string
-    image: string
-    _id: string
-  }
-
-  const nextWorkQuery = `*[_type == "project" && _id == $id] {
-    title,
-    "image": cover.asset->url,
-    _id
-  }[0]
-`
-
-  const nextWorkParams = { id: getNextProjectId() }
-
-  type GetNextWorkResult = NextWork
-
-  const nextWork: GetNextWorkResult = await client.fetch(
-    nextWorkQuery,
-    nextWorkParams
-  )
-
   interface Work {
     title: string
     image: string
@@ -108,8 +74,24 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     _id: string
   }
 
-  type GetWorkResult = Work
+  interface NextWork {
+    title: string
+    image: string
+    _id: string
+  }
 
+  interface ProjectID {
+    _id: string
+  }
+
+  type GetWorkResult = Work
+  type GetNextWorkResult = NextWork
+  type GetProjectIDs = ProjectID[]
+
+  const idsQuery = `*[_type == "project"] {
+      _id
+    } | order(_createdAt desc)
+  `
   const workQuery = `*[_type == "project" && _id == $id] {
       title,
       "image": cover.asset->url,
@@ -122,10 +104,27 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       _id
     }[0]
   `
+  const nextWorkQuery = `*[_type == "project" && _id == $id] {
+    title,
+    "image": cover.asset->url,
+    _id
+  }[0]
+  `
+
+  const projectIDs: GetProjectIDs = await client.fetch(idsQuery)
+  const getProjectIndex = () =>
+    projectIDs.findIndex(({ _id }) => _id === params?.id)
+  const getNextProjectIndex = () => (getProjectIndex() + 1) % projectIDs.length
+  const getNextProjectId = () => projectIDs[getNextProjectIndex()]._id
 
   const workParams = { id: params?.id }
+  const nextWorkParams = { id: getNextProjectId() }
 
   const work: GetWorkResult = await client.fetch(workQuery, workParams)
+  const nextWork: GetNextWorkResult = await client.fetch(
+    nextWorkQuery,
+    nextWorkParams
+  )
 
   return {
     props: { work: JSON.stringify(work), nextWork: JSON.stringify(nextWork) }

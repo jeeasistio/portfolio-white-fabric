@@ -37,7 +37,7 @@ interface Props {
 
 const WorksList = ({ works }: Props) => {
   const [curr, setCurr] = useState(0)
-  const images = works.map((work) => work.image)
+  const images = works.map((work) => ({ image: work.image, id: work._id }))
 
   const handleDrag = (
     e: MouseEvent | TouchEvent | PointerEvent,

@@ -1,16 +1,29 @@
 import { Box } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import GridItem from '../UtilityComponents/GridItem'
 
 interface Props {
-  images: string[]
+  images: { image: string; id: string }[]
   curr: number
   handleDrag: (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void
 }
 
 const Carousel = ({ images, curr, handleDrag }: Props) => {
   const [x, setX] = useState(0)
+  const [dragging, setDragging] = useState(false)
+
+  const handleDragStart = () => {
+    setDragging(true)
+  }
+  const handleDragEnd = (
+    e: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    handleDrag(e, info)
+    setDragging(false)
+  }
 
   useEffect(() => {
     setX(curr * -350)
@@ -51,10 +64,11 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
               component={motion.div}
               drag="x"
               dragConstraints={{ right: 0, left: 0 }}
-              onDragEnd={handleDrag}
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
               dragTransition={{ power: 0.2, timeConstant: 200 }}
             >
-              {images.map((image, index) => (
+              {images.map(({ image, id }, index) => (
                 <Box
                   key={index}
                   sx={{
@@ -63,30 +77,43 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    p: 3
+                    p: 3,
+                    pointerEvents: curr === index ? 'inherit' : 'none'
                   }}
                 >
-                  <Box
-                    sx={{ overflow: 'hidden' }}
-                    component={motion.div}
-                    animate={{
-                      width: curr === index ? 350 : 200,
-                      height: curr === index ? 500 : 400
-                    }}
-                    initial={{
-                      width: 200,
-                      height: 400
-                    }}
-                    transition={{ duration: 1 }}
-                  >
-                    <img
-                      src={image}
-                      alt="work"
-                      width={350}
-                      height={500}
-                      style={{ objectFit: 'cover', pointerEvents: 'none' }}
-                    />
-                  </Box>
+                  <Link href={curr === index && !dragging ? `/work/${id}` : ''}>
+                    <a onMouseDown={(e) => e.preventDefault()}>
+                      <Box
+                        sx={{ overflow: 'hidden', position: 'relative' }}
+                        component={motion.div}
+                        animate={{
+                          width: curr === index ? 350 : 200,
+                          height: curr === index ? 500 : 400,
+                          cursor: curr === index ? 'pointer' : 'inherit'
+                        }}
+                        initial={{
+                          width: 200,
+                          height: 350
+                        }}
+                        transition={{ duration: 1 }}
+                      >
+                        <img
+                          src={image}
+                          alt="work"
+                          width={350}
+                          height={500}
+                          style={{
+                            objectFit: 'cover',
+                            pointerEvents: 'none',
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)'
+                          }}
+                        />
+                      </Box>
+                    </a>
+                  </Link>
                 </Box>
               ))}
             </Box>

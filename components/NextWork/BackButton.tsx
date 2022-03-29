@@ -1,11 +1,11 @@
 import React from 'react'
+import CubeButton from '../UtilityComponents/CubeButton'
 import GridItem from '../UtilityComponents/GridItem'
-import TextCtn from '../UtilityComponents/TextCtn'
 
 const BackButton = () => {
   return (
-    <GridItem areaName='bk'>
-      <TextCtn text="Back" variant="h2" />
+    <GridItem areaName="bk">
+      <CubeButton text="Back" link href="/works" variant="h2" />
     </GridItem>
   )
 }

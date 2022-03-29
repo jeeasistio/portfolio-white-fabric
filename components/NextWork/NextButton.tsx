@@ -1,6 +1,6 @@
 import React from 'react'
+import CubeButton from '../UtilityComponents/CubeButton'
 import GridItem from '../UtilityComponents/GridItem'
-import TextCtn from '../UtilityComponents/TextCtn'
 
 interface Props {
   link: string
@@ -8,8 +8,8 @@ interface Props {
 
 const NextButton = ({ link }: Props) => {
   return (
-    <GridItem areaName="bt">
-      <TextCtn text="Next Work" variant="h2" />
+    <GridItem areaName="bt" sx={{ p: 2 }}>
+      <CubeButton text="Next Work" link href={link} variant="h2" />
     </GridItem>
   )
 }
