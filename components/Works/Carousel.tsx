@@ -87,7 +87,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                         sx={{ overflow: 'hidden', position: 'relative' }}
                         component={motion.div}
                         animate={{
-                          width: curr === index ? 350 : 200,
+                          width: curr === index ? 330 : 200,
                           height: curr === index ? 500 : 400,
                           cursor: curr === index ? 'pointer' : 'inherit'
                         }}

@@ -1,7 +1,11 @@
 import { Box, SxProps, Typography, TypographyVariant } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { Direction } from '../../lib/variants'
+import {
+  Direction,
+  getOpacityVariant,
+  getTextSlideVariant
+} from '../../lib/variants'
 
 interface Props {
   text: string
@@ -18,6 +22,11 @@ const TextCtn = ({
   animation = 'opacity',
   direction = 'up'
 }: Props) => {
+  const animationType =
+    animation === 'slide'
+      ? getTextSlideVariant()[direction]
+      : getOpacityVariant()
+
   return (
     <Box
       sx={{
@@ -28,9 +37,20 @@ const TextCtn = ({
         p: 4
       }}
     >
-      <Typography component={motion.p} variant={variant} sx={textStyle}>
-        {text}
-      </Typography>
+      <Box sx={{ overflow: 'hidden' }}>
+        <Typography
+          component={motion.p}
+          variant={variant}
+          variants={animationType}
+          initial="initial"
+          whileInView="animate"
+          exit="exit"
+          viewport={{ once: true }}
+          sx={textStyle}
+        >
+          {text}
+        </Typography>
+      </Box>
     </Box>
   )
 }

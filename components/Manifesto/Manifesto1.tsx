@@ -5,7 +5,7 @@ import TextCtn from '../UtilityComponents/TextCtn'
 const Manifesto1 = () => {
   return (
     <GridItem areaName="m1">
-      <TextCtn text="Think" variant="h2" />
+      <TextCtn text="Think" variant="h2" animation='slide' />
     </GridItem>
   )
 }

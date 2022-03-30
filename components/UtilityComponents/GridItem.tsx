@@ -16,6 +16,8 @@ const GridItem = ({ children, areaName, sx }: Props) => {
         gridArea: areaName,
         minHeight: '2rem',
         minWidth: '2rem',
+        position: 'relative',
+        overflow: 'hidden',
         ...sx
       }}
     >

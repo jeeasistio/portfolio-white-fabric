@@ -5,19 +5,23 @@ export type Direction = 'up' | 'down' | 'right' | 'left'
 
 const textSlide: { [P in Direction]: Variants } = {
   up: {
-    initial: { y: '100%' },
-    animate: { y: '0%', transition: getTransition() }
+    initial: { y: '99%' },
+    animate: { y: '0%', transition: getTransition() },
+    exit: {
+      y: '-100%',
+      transition: { ...getTransition(), damping: 15, stiffness: 100 }
+    }
   },
   down: {
-    initial: { y: '-100%' },
+    initial: { y: '-99%' },
     animate: { y: '0%', transition: getTransition() }
   },
   right: {
-    initial: { x: '-100%' },
+    initial: { x: '-99%' },
     animate: { x: '0%', transition: getTransition() }
   },
   left: {
-    initial: { x: '100%' },
+    initial: { x: '99%' },
     animate: { x: '0%', transition: getTransition() }
   }
 }
@@ -48,3 +52,8 @@ const overlaySlide: { [P in Direction]: Variants } = {
 export const getOverlaySlideVariant = () => {
   return overlaySlide
 }
+
+export const getOpacityVariant = () => ({
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.8 } }
+})

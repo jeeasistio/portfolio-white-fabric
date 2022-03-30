@@ -6,10 +6,10 @@ import NextButton from './NextButton'
 import Title from './Title'
 
 const template = `
-  'im im im im im im wt'
-  'im im im im im im wt'
-  'im im im im im im wt'
-  'im im im im im im wt'
+  'im im im im im wt wt'
+  'im im im im im wt wt'
+  'im im im im im wt wt'
+  'im im im im im wt wt'
   'bk bk bt bt bt bt bt'
 `
 

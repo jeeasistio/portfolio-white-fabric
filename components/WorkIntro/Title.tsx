@@ -1,7 +1,8 @@
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
+import { motion } from 'framer-motion'
 import React from 'react'
+import getTransition from '../../lib/getTransition'
 import GridItem from '../UtilityComponents/GridItem'
-import TextCtn from '../UtilityComponents/TextCtn'
 
 interface Props {
   title: string
@@ -10,14 +11,28 @@ interface Props {
 const Title = ({ title }: Props) => {
   return (
     <GridItem areaName="wt">
-      <TextCtn
-        text={title}
-        variant="h1"
-        textStyle={{
-          writingMode: 'vertical-rl',
-          transform: 'rotate(180deg)'
+      <Box
+        sx={{
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 4
         }}
-      />
+      >
+        <Box sx={{ overflow: 'hidden' }}>
+          <Typography
+            component={motion.h1}
+            variant="h1"
+            initial={{ x: '-99%', rotate: '180deg' }}
+            whileInView={{ x: '0%', transition: getTransition() }}
+            viewport={{ once: true }}
+            sx={{ writingMode: 'vertical-rl' }}
+          >
+            {title}
+          </Typography>
+        </Box>
+      </Box>
     </GridItem>
   )
 }

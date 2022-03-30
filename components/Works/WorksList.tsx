@@ -61,7 +61,7 @@ const WorksList = ({ works }: Props) => {
       templateAreas={template}
       sx={{ height: 'calc(100vh - 50px)' }}
     >
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         <WorkTitles title={works[curr].title} key={works[curr].title} />
       </AnimatePresence>
       <Carousel images={images} curr={curr} handleDrag={handleDrag} />

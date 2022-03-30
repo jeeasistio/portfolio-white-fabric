@@ -12,6 +12,8 @@ const Title = ({ title }: Props) => {
       <TextCtn
         text={title}
         variant="h1"
+        animation="slide"
+        direction="left"
         textStyle={{ writingMode: 'vertical-rl' }}
       />
     </GridItem>

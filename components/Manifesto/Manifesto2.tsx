@@ -8,6 +8,8 @@ const Manifesto2 = () => {
       <TextCtn
         text="Build"
         variant="h2"
+        animation="slide"
+        direction="left"
         textStyle={{ writingMode: 'vertical-rl' }}
       />
     </GridItem>
