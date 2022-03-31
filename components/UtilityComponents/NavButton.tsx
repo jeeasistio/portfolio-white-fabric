@@ -1,14 +1,14 @@
-import { Box } from '@mui/material'
-import { SxObject } from '../../interfaces/interfaces'
 import CubeButton from './CubeButton'
 import GridItem from './GridItem'
 
-const sx: SxObject = {}
+interface Props {
+  handleClick(): void
+}
 
-const NavButton = () => {
+const NavButton = ({ handleClick }: Props) => {
   return (
     <GridItem areaName="nb">
-      <CubeButton text="Menu" />
+      <CubeButton text="Menu" variant="h5" onClick={handleClick} />
     </GridItem>
   )
 }

@@ -38,7 +38,8 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        cursor: 'pointer'
       }}
     >
       <Box
@@ -88,8 +89,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                         component={motion.div}
                         animate={{
                           width: curr === index ? 330 : 200,
-                          height: curr === index ? 500 : 400,
-                          cursor: curr === index ? 'pointer' : 'inherit'
+                          height: curr === index ? 500 : 400
                         }}
                         initial={{
                           width: 200,
