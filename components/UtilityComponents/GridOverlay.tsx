@@ -16,7 +16,7 @@ const GridOverlay = () => {
       variants={getOverlaySlideVariant()[animationDirection]}
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: '-10%' }}
+      viewport={{ once: true, margin: '-35% 0%' }}
       transition={getTransition()}
       sx={{
         position: 'absolute',

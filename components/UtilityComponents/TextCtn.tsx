@@ -1,6 +1,7 @@
-import { Box, SxProps, Typography, TypographyVariant } from '@mui/material'
-import { motion } from 'framer-motion'
+import { Box, SxProps, Typography, TypographyProps, TypographyVariant } from '@mui/material'
+import { motion, MotionProps, Transition } from 'framer-motion'
 import React from 'react'
+import getTransition from '../../lib/getTransition'
 import {
   Direction,
   getOpacityVariant,
@@ -12,7 +13,9 @@ interface Props {
   variant?: TypographyVariant
   textStyle?: SxProps
   animation?: 'opacity' | 'slide'
-  direction?: Direction
+  direction?: Direction,
+  typographyProps?: TypographyProps & MotionProps
+  transitionProps?: Transition
 }
 
 const TextCtn = ({
@@ -20,12 +23,14 @@ const TextCtn = ({
   variant = 'body1',
   textStyle,
   animation = 'opacity',
-  direction = 'up'
+  direction = 'up',
+  typographyProps,
+  transitionProps
 }: Props) => {
   const animationType =
     animation === 'slide'
       ? getTextSlideVariant()[direction]
-      : getOpacityVariant()
+      : getOpacityVariant(transitionProps)
 
   return (
     <Box
@@ -38,6 +43,7 @@ const TextCtn = ({
       }}
     >
       <Box sx={{ overflow: 'hidden' }}>
+        {/* @ts-ignore */}
         <Typography
           component={motion.p}
           variant={variant}
@@ -45,8 +51,10 @@ const TextCtn = ({
           initial="initial"
           whileInView="animate"
           exit="exit"
-          viewport={{ once: true }}
+          transition={getTransition(transitionProps)}
+          viewport={{ once: true, margin: '-25% 0%' }}
           sx={textStyle}
+          {...typographyProps}
         >
           {text}
         </Typography>

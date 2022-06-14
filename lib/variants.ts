@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import { Transition, Variants } from 'framer-motion'
 import getTransition from './getTransition'
 
 export type Direction = 'up' | 'down' | 'right' | 'left'
@@ -9,7 +9,7 @@ const textSlide: { [P in Direction]: Variants } = {
     animate: { y: '0%', transition: getTransition() },
     exit: {
       y: '-100%',
-      transition: { ...getTransition(), damping: 15, stiffness: 100 }
+      transition: { ...getTransition({ damping: 15, stiffness: 100 }) }
     }
   },
   down: {
@@ -24,10 +24,6 @@ const textSlide: { [P in Direction]: Variants } = {
     initial: { x: '99%' },
     animate: { x: '0%', transition: getTransition() }
   }
-}
-
-export const getTextSlideVariant = () => {
-  return textSlide
 }
 
 const overlaySlide: { [P in Direction]: Variants } = {
@@ -53,7 +49,11 @@ export const getOverlaySlideVariant = () => {
   return overlaySlide
 }
 
-export const getOpacityVariant = () => ({
+export const getTextSlideVariant = () => {
+  return textSlide
+}
+
+export const getOpacityVariant = (moreTransitionOptions?: Transition) => ({
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.8 } }
+  animate: { opacity: 1, transition: { duration: 0.8, ...moreTransitionOptions } }
 })

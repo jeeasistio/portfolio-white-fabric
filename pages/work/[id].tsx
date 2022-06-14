@@ -1,6 +1,8 @@
 import { Box } from '@mui/material'
+import { AnimatePresence } from 'framer-motion'
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import React from 'react'
 import Gallery, { TGallery } from '../../components/Gallery/Gallery'
 import NextWork from '../../components/NextWork/NextWork'
@@ -33,6 +35,7 @@ interface Props {
 }
 
 const work: NextPage<Props> = ({ work, nextWork }) => {
+  const router = useRouter()
   const parsedWork: Work = JSON.parse(work)
   const parsedNextWork: NextWork = JSON.parse(nextWork)
   const { title, image, about, gallery, description } = parsedWork
@@ -44,12 +47,14 @@ const work: NextPage<Props> = ({ work, nextWork }) => {
         <title>Work</title>
       </Head>
 
-      <Layout>
+      <AnimatePresence exitBeforeEnter>
+      <Layout key={router.asPath}>
         <WorkIntro title={title} image={image} about={about} />
         <Gallery images={gallery} />
         <WorkDetails details={description.text} image={description.image} />
         <NextWork title={nextTitle} image={nextImage} id={nextID} />
       </Layout>
+      </AnimatePresence>
     </Box>
   )
 }
