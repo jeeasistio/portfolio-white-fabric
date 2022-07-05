@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import GridContainer from './GridContainer'
 import Logo from './Logo'
@@ -11,19 +12,20 @@ const template = `
 `
 
 const Header = () => {
-  const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false)
 
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
 
-  return (
-    <GridContainer templateAreas={template} sx={{ height: 50 }}>
-      <Logo />
-      <Space />
-      <NavButton handleClick={handleOpen} />
-      <NavPage open={open} handleClose={handleClose} />
-    </GridContainer>
-  )
+    return (
+        <GridContainer templateAreas={template} sx={{ height: 50 }}>
+            <Logo />
+            <Space />
+            <NavButton handleClick={handleOpen} />
+
+            <AnimatePresence exitBeforeEnter>{open && <NavPage handleClose={handleClose} />}</AnimatePresence>
+        </GridContainer>
+    )
 }
 
 export default Header
