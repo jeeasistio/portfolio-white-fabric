@@ -42,6 +42,8 @@ const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalBut
                 color: 'inherit',
                 border: 'none',
                 font: 'inherit',
+                fontWeight: '700',
+                textTransform: 'uppercase',
                 cursor: 'pointer',
                 outline: 'inherit',
                 perspective: '800px'

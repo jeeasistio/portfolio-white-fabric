@@ -1,7 +1,7 @@
 import React from 'react'
 import GridItem from '../UtilityComponents/GridItem'
 import GridOverlay from '../UtilityComponents/GridOverlay'
-import NormalImage from '../UtilityComponents/NormalImage'
+import ParallaxImage from '../UtilityComponents/ParallaxImage'
 
 interface Props {
     image: string
@@ -12,7 +12,7 @@ const OurWorksImages = ({ image, areaName }: Props) => {
     return (
         <GridItem areaName={areaName}>
             <GridOverlay />
-            <NormalImage src={image} alt="architecture" />
+            <ParallaxImage src={image} alt="architecture" />
         </GridItem>
     )
 }
