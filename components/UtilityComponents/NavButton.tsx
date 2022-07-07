@@ -8,7 +8,7 @@ interface Props {
 const NavButton = ({ handleClick }: Props) => {
     return (
         <GridItem areaName="nb">
-            <CubeButton text="Menu" variant="h5" onClick={handleClick} />
+            <CubeButton text="Menu" variant="h5" onClick={handleClick} fontWeight="700" />
         </GridItem>
     )
 }

@@ -8,6 +8,7 @@ interface NormalButton {
     variant?: TypographyVariant
     onClick?: () => void
     link?: false
+    fontWeight?: string
 }
 
 interface LinkButton {
@@ -16,11 +17,12 @@ interface LinkButton {
     variant?: TypographyVariant
     onClick?: () => void
     link?: true
+    fontWeight?: string
 }
 
 type CubeButton = LinkButton | NormalButton
 
-const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalButton) => {
+const NormalButton = ({ text, onClick = () => {}, variant = 'body1', fontWeight = '500' }: NormalButton) => {
     const controls = useAnimation()
 
     const handleHoverStart = () => controls.start({ rotateX: '90deg' })
@@ -33,6 +35,7 @@ const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalBut
             onHoverStart={handleHoverStart}
             onHoverEnd={handleHoverEnd}
             sx={{
+                p: 3,
                 height: '100%',
                 width: '100%',
                 display: 'flex',
@@ -42,7 +45,6 @@ const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalBut
                 color: 'inherit',
                 border: 'none',
                 font: 'inherit',
-                fontWeight: '700',
                 textTransform: 'uppercase',
                 cursor: 'pointer',
                 outline: 'inherit',
@@ -68,6 +70,7 @@ const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalBut
                         position: 'absolute',
                         top: 0,
                         left: 0,
+                        fontWeight,
                         transform: 'translateZ(0.5em)',
                         backfaceVisibility: 'hidden'
                     }}
@@ -81,6 +84,7 @@ const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalBut
                     sx={{
                         position: 'absolute',
                         left: 0,
+                        fontWeight,
                         bottom: '-40%',
                         transform: 'rotateX(-90deg)',
                         backfaceVisibility: 'hidden'
@@ -93,11 +97,11 @@ const NormalButton = ({ text, onClick = () => {}, variant = 'body1' }: NormalBut
     )
 }
 
-const LinkButton = ({ href, text, variant }: LinkButton) => {
+const LinkButton = ({ href, text, variant, fontWeight = '300' }: LinkButton) => {
     return (
         <Link href={href}>
             <a>
-                <NormalButton text={text} variant={variant} />
+                <NormalButton text={text} variant={variant} fontWeight={fontWeight} />
             </a>
         </Link>
     )
@@ -108,7 +112,9 @@ const CubeButton = (props: CubeButton) => {
         return <LinkButton {...props} />
     }
 
-    return <NormalButton text={props.text} variant={props.variant} onClick={props.onClick} />
+    return (
+        <NormalButton text={props.text} variant={props.variant} onClick={props.onClick} fontWeight={props.fontWeight} />
+    )
 }
 
 export default CubeButton

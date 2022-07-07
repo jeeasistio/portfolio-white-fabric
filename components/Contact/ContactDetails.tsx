@@ -15,7 +15,7 @@ const ContactDetails = () => {
     return (
         <GridContainer templateAreas={template} areaName="ct">
             <GridItem areaName="ti" sx={{ display: 'flex' }}>
-                <TextCtn text="Contact" variant="h2" viewportMargin={0} />
+                <TextCtn text="Contact" variant="h2" viewportMargin={0} animation="slide" />
             </GridItem>
             <GridItem areaName="ad">
                 <TextCtn text="9 Pineknoll Dr. Flemington, NJ 08822" variant="h5" viewportMargin={0} />

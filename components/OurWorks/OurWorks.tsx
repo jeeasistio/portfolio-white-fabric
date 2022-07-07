@@ -17,23 +17,23 @@ const template = `
 export type TOurWorksImages = [string, string, string, string, string]
 
 interface Props {
-  images: TOurWorksImages
+    images: TOurWorksImages
 }
 
 const OurWorks = ({ images }: Props) => {
-  return (
-    <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
-      <OurWorksTitle />
-      <GridItem areaName="s1" />
-      <GridItem areaName="s2" />
-      <GridItem areaName="s3" />
-      <GridItem areaName="s4" />
-      <GridItem areaName="s5" />
-      {images.map((image, index) => (
-        <OurWorksImages key={index} image={image} areaName={`i${index + 1}`} />
-      ))}
-    </GridContainer>
-  )
+    return (
+        <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
+            <OurWorksTitle />
+            <GridItem areaName="s1" />
+            <GridItem areaName="s2" />
+            <GridItem areaName="s3" />
+            <GridItem areaName="s4" />
+            <GridItem areaName="s5" />
+            {images.map((image, index) => (
+                <OurWorksImages key={index} image={image} areaName={`i${index + 1}`} />
+            ))}
+        </GridContainer>
+    )
 }
 
 export default OurWorks

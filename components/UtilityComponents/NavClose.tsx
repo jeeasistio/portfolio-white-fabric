@@ -9,7 +9,7 @@ interface Props {
 const NavClose = ({ onClick }: Props) => {
     return (
         <GridItem areaName="cl">
-            <CubeButton text="Close" variant="h5" onClick={onClick} />
+            <CubeButton text="Close" variant="h5" onClick={onClick} fontWeight="700" />
         </GridItem>
     )
 }

@@ -1,7 +1,8 @@
-import { Box } from '@mui/material'
+import { Box, TextField } from '@mui/material'
 import CubeButton from '../UtilityComponents/CubeButton'
 import GridContainer from '../UtilityComponents/GridContainer'
 import GridItem from '../UtilityComponents/GridItem'
+import StyledTextField from '../UtilityComponents/StyledTextField'
 import TextCtn from '../UtilityComponents/TextCtn'
 
 const template = `
@@ -17,19 +18,25 @@ const ContactForm = () => {
     return (
         <GridContainer templateAreas={template} areaName="fr">
             <GridItem areaName="se">
-                <TextCtn text="Send us a message" variant="h5" textStyle={{ fontWeight: '700' }} />
+                <TextCtn
+                    text="Send us a message"
+                    variant="h5"
+                    textStyle={{ fontWeight: '700' }}
+                    animation="slide"
+                    direction="down"
+                />
             </GridItem>
             <GridItem areaName="em">
-                <Box>Email</Box>
+                <StyledTextField label="Email" />
             </GridItem>
             <GridItem areaName="nm">
-                <Box>Name</Box>
+                <StyledTextField label="Name" />
             </GridItem>
             <GridItem areaName="ms">
-                <Box>Message</Box>
+                <StyledTextField label="Message" />
             </GridItem>
             <GridItem areaName="bt">
-                <CubeButton text="Send" />
+                <CubeButton text="Send" variant="h5" fontWeight="700" />
             </GridItem>
 
             <GridItem areaName="s1" />
