@@ -7,8 +7,8 @@ import NavPage from './NavPage'
 import Space from './Space'
 
 const template = `
-  'lg lg s s s s s s s s s nb'
-  'lg lg s s s s s s s s s nb'
+  'lg s s s s s s s s s s nb'
+  'lg s s s s s s s s s s nb'
 `
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
     const handleClose = () => setOpen(false)
 
     return (
-        <GridContainer templateAreas={template} sx={{ height: 50 }}>
+        <GridContainer templateAreas={template} sx={{ height: 100 }}>
             <Logo />
             <Space />
             <NavButton handleClick={handleOpen} />

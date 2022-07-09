@@ -20,7 +20,7 @@ const Hero = () => {
   return (
     <GridContainer
       templateAreas={template}
-      sx={{ height: 'calc(100vh - 50px)' }}
+      sx={{ height: 'calc(100vh - 100px)' }}
     >
       <GridItem areaName="s1" />
       <GridItem areaName="s2" />
