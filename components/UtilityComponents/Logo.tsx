@@ -32,7 +32,7 @@ const Logo = () => {
                                     component={motion.div}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
+                                    exit={{ opacity: 0, transition: getTransition({ stiffness: 120 }) }}
                                     key="logo"
                                 >
                                     <img
@@ -59,7 +59,12 @@ const Logo = () => {
                                         component={motion.h5}
                                         initial={{ scale: 0.9, opacity: 0, y: 10 }}
                                         animate={{ scale: 1, opacity: 1, y: 0 }}
-                                        exit={{ scale: 0.9, opacity: 0, y: 10 }}
+                                        exit={{
+                                            scale: 0.9,
+                                            opacity: 0,
+                                            y: 10,
+                                            transition: getTransition({ stiffness: 120 })
+                                        }}
                                         transition={getTransition()}
                                         variant="h5"
                                         fontWeight="700"
@@ -72,7 +77,12 @@ const Logo = () => {
                                         component={motion.h5}
                                         initial={{ scale: 0.9, opacity: 0, y: -10 }}
                                         animate={{ scale: 1, opacity: 1, y: 0 }}
-                                        exit={{ scale: 0.9, opacity: 0, y: -10 }}
+                                        exit={{
+                                            scale: 0.9,
+                                            opacity: 0,
+                                            y: -10,
+                                            transition: getTransition({ stiffness: 120 })
+                                        }}
                                         transition={getTransition()}
                                         variant="h5"
                                         fontWeight="700"

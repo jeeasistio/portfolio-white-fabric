@@ -1,4 +1,5 @@
 import React from 'react'
+import useMobile from '../../lib/useMobile'
 import GridContainer from '../UtilityComponents/GridContainer'
 import GridItem from '../UtilityComponents/GridItem'
 import BottomText from './BottomText'
@@ -17,20 +18,19 @@ const template = `
 `
 
 const Hero = () => {
-  return (
-    <GridContainer
-      templateAreas={template}
-      sx={{ height: 'calc(100vh - 100px)' }}
-    >
-      <GridItem areaName="s1" />
-      <GridItem areaName="s2" />
-      <GridItem areaName="s3" />
-      <GridItem areaName="s4" />
-      <TopText />
-      <HeroImage />
-      <BottomText />
-    </GridContainer>
-  )
+    const isMobile = useMobile()
+
+    return (
+        <GridContainer templateAreas={template} sx={{ height: 'calc(100vh - 100px)' }}>
+            <GridItem areaName="s1" />
+            <GridItem areaName="s2" />
+            <GridItem areaName="s3" />
+            <GridItem areaName="s4" />
+            <TopText />
+            <HeroImage />
+            <BottomText />
+        </GridContainer>
+    )
 }
 
 export default Hero

@@ -16,7 +16,7 @@ const StyledTextField = (props: TextFieldProps) => {
             InputLabelProps={{
                 shrink: false,
                 sx: {
-                    top: -10,
+                    top: -15,
                     left: 10,
                     fontWeight: '500',
                     '&.Mui-focused': {

@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import { SxObject } from '../../interfaces/interfaces'
 import Header from './Header'
 
 interface Props {

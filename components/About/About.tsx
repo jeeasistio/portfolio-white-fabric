@@ -16,16 +16,16 @@ const template = `
 `
 
 const About = () => {
-  return (
-    <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
-      <GridItem areaName="s1" />
-      <GridItem areaName="s2" />
-      <Image1 />
-      <Image2 />
-      <AboutTitle />
-      <AboutDesc />
-    </GridContainer>
-  )
+    return (
+        <GridContainer templateAreas={template} sx={{ height: { md: '100vh' } }}>
+            <GridItem areaName="s1" />
+            <GridItem areaName="s2" />
+            <Image1 />
+            <Image2 />
+            <AboutTitle />
+            <AboutDesc />
+        </GridContainer>
+    )
 }
 
 export default About
