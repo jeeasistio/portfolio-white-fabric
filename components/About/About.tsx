@@ -10,7 +10,7 @@ const template = `
   'i1 i1 i1 i1 i2 i2'
   'i1 i1 i1 i1 i2 i2'
   'i1 i1 i1 i1 i2 i2'
-  'at at at s1 s1 s1'
+  'at at at at s1 s1'
   's2 s2 ds ds ds ds'
   's2 s2 ds ds ds ds'
 `

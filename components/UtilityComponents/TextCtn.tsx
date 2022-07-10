@@ -34,7 +34,7 @@ const TextCtn = ({
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                p: 4
+                p: { xs: 1, md: 4 }
             }}
         >
             <Box sx={{ overflow: 'hidden' }}>
