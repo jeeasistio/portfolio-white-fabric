@@ -10,24 +10,28 @@ const template = `
   'im im im im im wt wt'
   'im im im im im wt wt'
   'im im im im im wt wt'
+  'im im im im im wt wt'
+  'im im im im im wt wt'
+  'im im im im im wt wt'
+  'im im im im im wt wt'
   'bk bk bt bt bt bt bt'
 `
 
 interface Props {
-  image: string
-  title: string
-  id: string
+    image: string
+    title: string
+    id: string
 }
 
 const NextWork = ({ image, title, id }: Props) => {
-  return (
-    <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
-      <Image1 image={image} />
-      <Title title={title} />
-      <NextButton link={`/work/${id}`} />
-      <BackButton />
-    </GridContainer>
-  )
+    return (
+        <GridContainer templateAreas={template} sx={{ height: '100vh' }}>
+            <Image1 image={image} />
+            <Title title={title} />
+            <NextButton link={`/work/${id}`} />
+            <BackButton />
+        </GridContainer>
+    )
 }
 
 export default NextWork

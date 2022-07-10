@@ -25,7 +25,7 @@ const WorkIntro = ({ title, image, about }: Props) => {
   return (
     <GridContainer
       templateAreas={template}
-      sx={{ height: 'calc(100vh - 50px)' }}
+      sx={{ height: 'calc(100vh - 100px)' }}
     >
       <Title title={title} />
       <WorkImage image={image} />

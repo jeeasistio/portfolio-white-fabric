@@ -9,7 +9,7 @@ interface Props {
 const NextButton = ({ link }: Props) => {
   return (
     <GridItem areaName="bt" sx={{ p: 2 }}>
-      <CubeButton text="Next Work" link href={link} variant="h2" />
+      <CubeButton text="Next Work" link href={link} variant="h3" />
     </GridItem>
   )
 }
