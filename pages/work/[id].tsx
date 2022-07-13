@@ -44,7 +44,7 @@ const Work: NextPage<Props> = ({ work, nextWork }) => {
     return (
         <Box>
             <Head>
-                <title>Work</title>
+                <title>{parsedWork.title}</title>
             </Head>
 
             <AnimatePresence exitBeforeEnter>
