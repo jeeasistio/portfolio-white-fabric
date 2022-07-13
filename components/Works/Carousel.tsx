@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import { motion, PanInfo } from 'framer-motion'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import useMobile from '../../lib/useMobile'
 import GridItem from '../UtilityComponents/GridItem'
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const Carousel = ({ images, curr, handleDrag }: Props) => {
+    const isMobile = useMobile()
     const [x, setX] = useState(0)
     const [dragging, setDragging] = useState(false)
 
@@ -23,8 +25,13 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
     }
 
     useEffect(() => {
-        setX(curr * -355)
+        setX(curr * (isMobile ? -250 : -350))
     }, [curr])
+
+    const activeImageWidth = isMobile ? 200 : 350
+    const inActiveImageWidth = isMobile ? 100 : 100
+    const activeImageHeight = isMobile ? 350 : 300
+    const inActiveImageHeight = isMobile ? 200 : 350
 
     return (
         <GridItem
@@ -70,7 +77,7 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                                 <Box
                                     key={index}
                                     sx={{
-                                        width: 350,
+                                        width: isMobile ? 250 : 350,
                                         height: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -85,8 +92,8 @@ const Carousel = ({ images, curr, handleDrag }: Props) => {
                                                 sx={{ overflow: 'hidden', position: 'relative' }}
                                                 component={motion.div}
                                                 animate={{
-                                                    width: curr === index ? 350 : 200,
-                                                    height: curr === index ? 500 : 400
+                                                    width: curr === index ? activeImageWidth : inActiveImageWidth,
+                                                    height: curr === index ? activeImageHeight : inActiveImageHeight
                                                 }}
                                                 initial={{
                                                     width: 200,
