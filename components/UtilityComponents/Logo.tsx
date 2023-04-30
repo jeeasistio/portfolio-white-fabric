@@ -23,7 +23,7 @@ const Logo = () => {
                             height: '100%',
                             display: 'flex',
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
                         }}
                     >
                         <AnimatePresence exitBeforeEnter>
@@ -32,7 +32,11 @@ const Logo = () => {
                                     component={motion.div}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0, transition: getTransition({ stiffness: 120 }) }}
+                                    exit={{
+                                        opacity: 0,
+                                        transition: { duration: 0.1 },
+                                    }}
+                                    transition={getTransition({})}
                                     key="logo"
                                 >
                                     <img
@@ -52,20 +56,21 @@ const Logo = () => {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         height: '100%',
-                                        width: 120
+                                        width: 120,
                                     }}
                                 >
                                     <Typography
                                         component={motion.h5}
-                                        initial={{ scale: 0.9, opacity: 0, y: 10 }}
-                                        animate={{ scale: 1, opacity: 1, y: 0 }}
+                                        initial={{ opacity: 0, y: 5 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         exit={{
-                                            scale: 0.9,
                                             opacity: 0,
                                             y: 10,
-                                            transition: getTransition({ stiffness: 120 })
+                                            transition: { duration: 0.2 },
                                         }}
-                                        transition={getTransition()}
+                                        transition={getTransition({
+                                            damping: 10,
+                                        })}
                                         variant="h5"
                                         fontWeight="700"
                                         key="white"
@@ -75,15 +80,16 @@ const Logo = () => {
                                     </Typography>
                                     <Typography
                                         component={motion.h5}
-                                        initial={{ scale: 0.9, opacity: 0, y: -10 }}
-                                        animate={{ scale: 1, opacity: 1, y: 0 }}
+                                        initial={{ opacity: 0, y: -5 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         exit={{
-                                            scale: 0.9,
                                             opacity: 0,
                                             y: -10,
-                                            transition: getTransition({ stiffness: 120 })
+                                            transition: { duration: 0.2 },
                                         }}
-                                        transition={getTransition()}
+                                        transition={getTransition({
+                                            damping: 10,
+                                        })}
                                         variant="h5"
                                         fontWeight="700"
                                         sx={{ letterSpacing: 8 }}

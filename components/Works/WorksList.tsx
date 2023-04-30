@@ -19,12 +19,6 @@ const template = `
   's1 s1 wi wi wi s2 s2'
 `
 
-const getDirection = (velocity: number) => {
-    if (velocity > 0) return 'left'
-    if (velocity < 0) return 'right'
-    return false
-}
-
 export interface Work {
     title: string
     image: string
@@ -39,14 +33,15 @@ const WorksList = ({ works }: Props) => {
     const [curr, setCurr] = useState(0)
     const images = works.map((work) => ({ image: work.image, id: work._id }))
 
-    const handleDrag = (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-        if (getDirection(info.velocity.x) === 'left') {
+    const handleDrag = (
+        e: MouseEvent | TouchEvent | PointerEvent,
+        info: PanInfo
+    ) => {
+        if (info.offset.x > 0) {
             if (curr !== 0) {
                 setCurr((prev) => prev - 1)
             }
-        }
-
-        if (getDirection(info.velocity.x) === 'right') {
+        } else {
             if (curr !== works.length - 1) {
                 setCurr((prev) => prev + 1)
             }
@@ -54,7 +49,10 @@ const WorksList = ({ works }: Props) => {
     }
 
     return (
-        <GridContainer templateAreas={template} sx={{ height: 'calc(100vh - 100px)' }}>
+        <GridContainer
+            templateAreas={template}
+            sx={{ height: 'calc(100vh - 100px)' }}
+        >
             <AnimatePresence exitBeforeEnter>
                 <WorkTitles title={works[curr].title} key={works[curr].title} />
             </AnimatePresence>
